@@ -5,14 +5,14 @@ import pixoo_reset
 def main():
     pixoo_reset.reset_display()
 
-    dashboard_url = 'http://web01.taegon.kr:7600/test'
+    dashboard_url = 'http://web01.taegon.kr:7600/recent'
     response = requests.get(dashboard_url)
     result = response.text
     result = json.loads(result)
-    temp = result['grh']['day_temp'][-1]
-    humid = result['grh']['day_humid'][-1]
-    time = result['grh']['day_time'][-1]
-    date = result['grh']['date'][-1]
+    temp = result['grh']['day_temp']
+    humid = result['grh']['day_humid']
+    time = result['grh']['day_time']
+    date = result['grh']['date']
     date_str = f"{date.split('-')[1]}/{date.split('-')[2]}"
 
 
