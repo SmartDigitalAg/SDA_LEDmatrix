@@ -1,12 +1,10 @@
 import requests
-import json
 import pixoo_reset
 
 def main():
     pixoo_reset.reset_display()
 
-
-    pixoo_url = 'http://web01.taegon.kr:5000/text'
+    pixoo_url = 'http://iot.digitalag.kr:5000/text'
 
     headers = {
         'accept': 'application/json',
