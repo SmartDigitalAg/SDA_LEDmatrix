@@ -2,6 +2,7 @@ import requests
 
 def reset_display():
     pixoo_reset = 'http://iot.digitalag.kr:5000/fill?host=pixoo2'
+    pixoo_reset = 'http://iot.digitalag.kr:5000/fill'
 
     headers = {
         'accept': 'application/json',

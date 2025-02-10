@@ -4,7 +4,6 @@ import pixoo_reset
 def main():
     pixoo_reset.reset_display()
 
-
     pixoo_url = 'http://iot.digitalag.kr:5000/text'
 
     headers = {
@@ -13,7 +12,7 @@ def main():
     }
 
     data = {
-        'text': '출장중입니다',
+        'text': '업무중입니다',
         'x': '0',
         'y': '20',
         'r': '255',

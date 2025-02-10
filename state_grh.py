@@ -6,18 +6,19 @@ def main():
     pixoo_reset.reset_display()
 
 
-    dashboard_url = 'http://web01.taegon.kr:7600/recent'
+    dashboard_url = 'http://iot.digitalag.kr:7600/recent'
     response = requests.get(dashboard_url)
     result = response.text
     result = json.loads(result)
-    temp = result['lab']['day_temp']
-    humid = result['lab']['day_humid']
-    time = result['lab']['day_time']
-    date = result['lab']['date']
+    temp = result['grh']['temperature']
+    humid = result['grh']['humidity']
+
+    date = result['grh']['timestamp']
     date_str = f"{date.split('-')[1]}/{date.split('-')[2]}"
+    time_str = f"{date.split(' ')[1][0:5]}"
 
 
-    pixoo_url = 'http://web01.taegon.kr:5000/text'
+    pixoo_url = 'http://iot.digitalag.kr:5000/text'
 
     headers = {
         'accept': 'application/json',
@@ -25,15 +26,19 @@ def main():
     }
 
     data = {
-        # 'text': '온실 온습도',
-        # 'text': f'{time}',
-        # 'text': f'{temp}℃',
-        'text': f'{temp}℃\n{humid}%\n     {date_str}\n{time}\n 연구실',
-        'x': '3',
+        'text': f'온실  \n {time_str}\n 온도   {temp}℃\n 습도   {humid}%',
+        'x': '0',
         'y': '0',
-        'push_immediately': 'true'
-
+        'r': '255',
+        'g': '255',
+        'b': '255',
+        'identifier': '0',
+        'font': '1',
+        'width': '64',
+        'movement_speed': '1',
+        'direction': '0'
     }
+
 
     response = requests.post(pixoo_url, headers=headers, data=data)
 

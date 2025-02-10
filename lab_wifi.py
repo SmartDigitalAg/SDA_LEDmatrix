@@ -1,4 +1,3 @@
-
 import requests
 import pyqrcode as pq
 import pixoo_reset

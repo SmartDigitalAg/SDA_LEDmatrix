@@ -13,14 +13,14 @@ def main():
     }
 
     data = {
-        'text': '출장중입니다',
-        'x': '0',
+        'text': 'SDA \n LAB',
+        'x': '18',
         'y': '20',
         'r': '255',
         'g': '255',
         'b': '255',
         'identifier': '0',
-        'font': '1',
+        'font': '20',
         'width': '64',
         'movement_speed': '1',
         'direction': '0'
